@@ -30,7 +30,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/cubocore/libcprime.git
-        tag: v4.2.0
+        tag: v4.3.0
   - name: libcsys
     buildsystem: cmake-ninja
     config-opts:
