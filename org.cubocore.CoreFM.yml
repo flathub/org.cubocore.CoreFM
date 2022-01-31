@@ -30,7 +30,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/cubocore/libcprime.git
-        tag: v4.2.0
+        tag: v4.3.0
   - name: libcsys
     buildsystem: cmake-ninja
     config-opts:
@@ -39,7 +39,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/cubocore/libcsys.git
-        tag: v4.2.0
+        tag: v4.3.0
   - name: corefm
     post-install:
       - install -Dp -m 644 org.cubocore.CoreFM.appdata.xml /app/share/appdata/org.cubocore.CoreFM.appdata.xml
@@ -53,5 +53,5 @@ modules:
         path: org.cubocore.CoreFM.appdata.xml
       - type: git
         url: https://gitlab.com/cubocore/coreapps/corefm.git
-        tag: v4.2.0
+        tag: v4.3.0
 
