@@ -9,7 +9,7 @@ finish-args:
   - --socket=wayland
   - --filesystem=home
   - --filesystem=/run/media:ro # For accessing the external devices (read only)
-  - --filesystem=xdg-config
+  - --filesystem=xdg-config:create
   - --device=dri
   - --system-talk-name=org.freedesktop.UDisks2 # Getting the disk informationetcetc
   - --talk-name=org.freedesktop.Notifications
