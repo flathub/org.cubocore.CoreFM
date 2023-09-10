@@ -9,7 +9,6 @@ finish-args:
   - --socket=wayland
   - --filesystem=home
   - --filesystem=/run/media:ro # For accessing the external devices (read only)
-  - --filesystem=xdg-config:create
   - --device=dri
   - --system-talk-name=org.freedesktop.UDisks2 # Getting the disk informationetcetc
   - --talk-name=org.freedesktop.Notifications
@@ -25,18 +24,12 @@ cleanup:
 modules:
   - name: libcprime
     buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_INSTALL_PREFIX=/app
-      - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: git
         url: https://gitlab.com/cubocore/libcprime.git
         tag: v4.5.0
   - name: libcsys
     buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_INSTALL_PREFIX=/app
-      - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: git
         url: https://gitlab.com/cubocore/libcsys.git
@@ -45,10 +38,6 @@ modules:
     post-install:
       - install -Dp -m 644 org.cubocore.CoreFM.appdata.xml /app/share/appdata/org.cubocore.CoreFM.appdata.xml
     buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_INSTALL_PREFIX=/app
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DCMAKE_LIBRARY_PATH=/app/lib
     sources:
       - type: file
         path: org.cubocore.CoreFM.appdata.xml
