@@ -1,0 +1,30 @@
+--- a/cc.cubocore.CoreFM.desktop
++++ b/cc.cubocore.CoreFM.desktop
+@@ -5,3 +5,3 @@
+ Exec=corefm %F
+-Icon=cc.cubocore.CoreFM
++Icon=org.cubocore.CoreFM
+ Type=Application
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -33,4 +33,4 @@
+ 
+-const QString appID = QStringLiteral(APP_ID);
++const QString appID = QStringLiteral("org.cubocore.CoreFM");
+ 
+ int main( int argc, char** argv )
+--- a/cc.cubocore.CoreFM.metainfo.xml
++++ b/cc.cubocore.CoreFM.metainfo.xml
+@@ -4,4 +4,4 @@
+ <component type="desktop-application">
+-    <id>cc.cubocore.CoreFM</id>
++    <id>org.cubocore.CoreFM</id>
+ 
+     <metadata_license>CC0-1.0</metadata_license>
+@@ -11,5 +11,5 @@
+     <developer_name>CuboCore Group</developer_name>
+ 
+-    <launchable type="desktop-id">cc.cubocore.CoreFM.desktop</launchable>
++    <launchable type="desktop-id">org.cubocore.CoreFM.desktop</launchable>
+ 
+     <name>CoreFM</name> 

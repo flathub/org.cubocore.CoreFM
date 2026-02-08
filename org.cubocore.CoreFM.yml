@@ -1,12 +1,15 @@
 app-id: org.cubocore.CoreFM
 runtime: org.kde.Platform
-runtime-version: '5.15-25.08'
+runtime-version: '6.10'
 sdk: org.kde.Sdk
 command: corefm
+rename-desktop-file: cc.cubocore.CoreFM.desktop
+rename-icon: cc.cubocore.CoreFM
+rename-appdata-file: cc.cubocore.CoreFM.metainfo.xml
 finish-args:
   - --share=ipc
-  - --socket=fallback-x11
   - --socket=wayland
+  - --socket=fallback-x11
   - --filesystem=home
   - --filesystem=/run/media:ro # For accessing the external devices (read only)
   - --device=dri
@@ -24,25 +27,28 @@ cleanup:
 modules:
   - name: libcprime
     buildsystem: cmake-ninja
-    config-opts: ["-DCMAKE_POLICY_VERSION_MINIMUM=3.5"]
+    config-opts: [
+        "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    ]
     sources:
       - type: git
         url: https://gitlab.com/cubocore/libcprime.git
-        tag: v4.5.0
+        commit: 17d4c94f3be2c7f67dc757cf852f0144945c2c69
+        tag: v5.0.1
   - name: libcsys
     buildsystem: cmake-ninja
     sources:
       - type: git
         url: https://gitlab.com/cubocore/libcsys.git
-        tag: v4.5.0
+        commit: de841ad0eb9bedda8122d98c092ba58324e048b4
+        tag: v5.0.1
   - name: corefm
-    post-install:
-      - install -Dp -m 644 org.cubocore.CoreFM.appdata.xml /app/share/appdata/org.cubocore.CoreFM.appdata.xml
     buildsystem: cmake-ninja
     sources:
-      - type: file
-        path: org.cubocore.CoreFM.appdata.xml
       - type: git
         url: https://gitlab.com/cubocore/coreapps/corefm.git
-        tag: v4.5.0
+        commit: 9689c4bac303c9fb4e4d26fe310411b76a8896b0
+        tag: v5.0.1
+      - type: patch
+        path: fix-icon-name.patch
 
