@@ -10,8 +10,7 @@ finish-args:
   - --share=ipc
   - --socket=wayland
   - --socket=fallback-x11
-  - --filesystem=home
-  - --filesystem=/run/media:ro # For accessing the external devices (read only)
+  - --filesystem=host # For accessing the external devices, and also for browsing the files in the entire filesystem.
   - --device=dri
   - --system-talk-name=org.freedesktop.UDisks2 # Getting the disk informationetcetc
   - --talk-name=org.freedesktop.Notifications
